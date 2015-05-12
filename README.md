@@ -49,11 +49,13 @@ Oslo projects configuration through types and providers.
 
 Example with puppet-nova:
 
+```Puppet
 ::oslo::messaging { 'nova_config':
   rabbit_host     => 'localhost',
   rabbit_userid   => 'nova',
   rabbit_password => 'secret',
 }
+```
 
 It will configure oslo_messaging_rabbit section in nova.conf accordingly.
 
