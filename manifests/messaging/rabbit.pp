@@ -189,11 +189,7 @@ define oslo::messaging::rabbit(
     ensure_resource($name, 'oslo_messaging_rabbit/rabbit_hosts', {'ensure' => 'absent'})
   }
 
-  if $rabbit_use_ssl {
-    ensure_resource($name, 'oslo_messaging_rabbit/rabbit_use_ssl', {'value' => $rabbit_use_ssl})
-  } else {
-    ensure_resource($name, 'oslo_messaging_rabbit/rabbit_use_ssl', {'ensure' => 'absent'})
-  }
+  ensure_resource($name, 'oslo_messaging_rabbit/rabbit_use_ssl', {'value' => $rabbit_use_ssl})
 
   if $rabbit_userid {
     ensure_resource($name, 'oslo_messaging_rabbit/rabbit_userid', {'value' => $rabbit_userid})
@@ -237,11 +233,7 @@ define oslo::messaging::rabbit(
     ensure_resource($name, 'oslo_messaging_rabbit/rabbit_max_retries', {'ensure' => 'absent'})
   }
 
-  if $rabbit_ha_queues {
-    ensure_resource($name, 'oslo_messaging_rabbit/rabbit_ha_queues', {'value' => $rabbit_ha_queues})
-  } else {
-    ensure_resource($name, 'oslo_messaging_rabbit/rabbit_ha_queues', {'ensure' => 'absent'})
-  }
+  ensure_resource($name, 'oslo_messaging_rabbit/rabbit_ha_queues', {'value' => $rabbit_ha_queues})
 
   if $heartbeat_timeout_threshold {
     ensure_resource($name, 'oslo_messaging_rabbit/heartbeat_timeout_threshold', {'value' => $heartbeat_timeout_threshold})
