@@ -69,7 +69,6 @@
 #
 # [*rabbit_use_ssl*]
 #   Connect over SSL for RabbitMQ.
-#   Should be a boolean.
 #   string; optional: default to undef
 #
 # [*rabbit_userid*]
@@ -105,7 +104,6 @@
 #   Use HA queues in RabbitMQ (x-ha-policy: all).
 #   If you change this option, you must wipe the
 #   RabbitMQ database.
-#   Should be a boolean.
 #   string; optional: default to undef
 #
 # [*heartbeat_timeout_threshold*]
@@ -192,7 +190,6 @@ define oslo::messaging::rabbit(
   }
 
   if $rabbit_use_ssl {
-    validate_bool($rabbit_use_ssl)
     ensure_resource($name, 'oslo_messaging_rabbit/rabbit_use_ssl', {'value' => $rabbit_use_ssl})
   } else {
     ensure_resource($name, 'oslo_messaging_rabbit/rabbit_use_ssl', {'ensure' => 'absent'})
@@ -241,7 +238,6 @@ define oslo::messaging::rabbit(
   }
 
   if $rabbit_ha_queues {
-    validate_bool($rabbit_ha_queues)
     ensure_resource($name, 'oslo_messaging_rabbit/rabbit_ha_queues', {'value' => $rabbit_ha_queues})
   } else {
     ensure_resource($name, 'oslo_messaging_rabbit/rabbit_ha_queues', {'ensure' => 'absent'})
