@@ -50,7 +50,7 @@ Oslo projects configuration through types and providers.
 Example with puppet-nova:
 
 ```Puppet
-::oslo::messaging { 'nova_config':
+::oslo::messaging::rabbit { 'nova_config':
   rabbit_host     => 'localhost',
   rabbit_userid   => 'nova',
   rabbit_password => 'secret',
