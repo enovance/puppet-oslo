@@ -45,6 +45,18 @@ Implementation
 oslo is a combination of Puppet manifest and ruby code to deliver
 Oslo projects configuration through types and providers.
 
+### Usage in OpenStack modules
+
+Example with puppet-nova:
+
+::oslo::messaging { 'nova_config':
+  rabbit_host     => 'localhost',
+  rabbit_userid   => 'nova',
+  rabbit_password => 'secret',
+}
+
+It will configure oslo_messaging_rabbit section in nova.conf accordingly.
+
 Limitations
 -----------
 
